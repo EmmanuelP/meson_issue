@@ -1,10 +1,10 @@
-project('project_b', 'c')
+project('project_b', 'c', version:'1.0')
 
 pkg=import('pkgconfig')
 
-deps = dependency('project_a')
+deps = [dependency('project_a')]
 
-lib=library(meson.project_name(), 'lib_b.c', dependencies: deps, install:true)
+lib=library(meson.project_name(), 'lib_b.c', dependencies: deps, version:'1.0', install:true)
 
 install_headers(['lib_b.h'])
 
